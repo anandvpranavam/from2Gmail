@@ -10,15 +10,16 @@
 
 <body>
     <div class="container">
-        <form onsubmit="sendEmail(); reset(); return false;">
+        <form id="gform" method="POST"
+            action="https://script.google.com/macros/s/AKfycbwtf9_TXz4CwBQg7QBQea8MyfWfaZMUAgNd_L3uRRWwkH1J_ctBCNtuc0fyY0Hr6Clz/exec">
             <h2>GET IN TOUCH</h2>
             <!-- <div>
                     <label for="name">Name</label> -->
-            <input id="name" type="text" placeholder="Username" required>
+            <input id="name" name="name" type="text" placeholder="Username" required>
             <!-- </div>
                 <div>
                     <label for="email">Email</label> -->
-            <input id="email" type="email" placeholder="johnDoe@gmail.com" required>
+            <input id="email" name="email" type="email" placeholder="johnDoe@gmail.com" required>
             <!-- </div>
                 <div>
                     <label for="phone">Phone</label> -->
@@ -31,25 +32,6 @@
             <button type="submit">Send</button>
         </form>
     </div>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail() {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "anandvpranavam@gmail.com",
-                Password: "4C6E7C6C2138EBF88FD27135010C0141808F",
-                To: 'anandrbcmail@gmail.com',
-                From: document.getElementById("email").value,
-                Subject: "New contact form",
-                Body: "Name:" + document.getElementById("name").value
-                        +"<br> Email: "+ document.getElementById("email").value
-                        +"<br> Phone: "+ document.getElementById("phone").value
-                        +"<br> Message: "+ document.getElementById("message").value
-            }).then(
-                message => alert(message)
-            );
-        }
-    </script>
 </body>
 
 </html>
