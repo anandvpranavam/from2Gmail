@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <form id="gform" method="POST"
-            action="https://script.google.com/macros/s/AKfycbwtf9_TXz4CwBQg7QBQea8MyfWfaZMUAgNd_L3uRRWwkH1J_ctBCNtuc0fyY0Hr6Clz/exec">
+        <form id="submit-form" action="">
             <h2>GET IN TOUCH</h2>
             <!-- <div>
                     <label for="name">Name</label> -->
@@ -32,6 +32,25 @@
             <button type="submit">Send</button>
         </form>
     </div>
+    <script>
+        $("#submit-form").submit((e) => {
+            e.preventDefault()
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbwtf9_TXz4CwBQg7QBQea8MyfWfaZMUAgNd_L3uRRWwkH1J_ctBCNtuc0fyY0Hr6Clz/exec",
+                data: $("#submit-form").serialize(),
+                method: "post",
+                success: function (response) {
+                    alert("Form submitted successfully");
+                    window.location.reload();
+                    //window.location.href="https://google.com"
+                },
+                error: function (err) {
+                    alert("Something Error")
+
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
